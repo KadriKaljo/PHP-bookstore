@@ -1,0 +1,15 @@
+<?php
+require_once('./connection.php');
+
+if(!isset($_GET['id']) || !$_GET['id'] ) {
+  echo 'Viga: raamatut ei leitud!';
+  exit();
+}
+
+$id = $_GET['id'];
+
+$stmt = $pdo->prepare('UPDATE books SET is_deleted WHERE id = :id');
+$stmt->execute(['id' => $id]);
+
+header('Location: index.php');
+exit();

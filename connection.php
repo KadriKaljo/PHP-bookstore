@@ -1,6 +1,6 @@
 <?php
 
-require_once('/config.php');
+require_once('./config.php');
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
@@ -9,4 +9,3 @@ $options = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 $pdo = new PDO($dsn, $user, $pass, $options);
-
